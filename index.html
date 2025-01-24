@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Aula 24/01/2025 - Osmar Araujo</title> 
+  <style>
+        
+        * {
+          font-family: 'Courier New';
+        }
+        
+        main {
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        } 
+        
+        form {
+          border: 1px solid black;
+          border-radius: 10px;
+          padding: 20px;
+        }
+        
+        input {
+          outline: 0;
+        }
+        
+        result {
+          margin-top: 0;
+          margin-bottom: 2px;
+        }
+        
+      </style> 
+ </head> 
+ <body> 
+  <main> 
+   <h1>Calculadora</h1> 
+   <form> <label for="n1">Numero 1</label> 
+    <br> 
+    <input id="n1" type="number"> 
+    <br> 
+    <br> <label for="n2">Numero 2</label> 
+    <br> 
+    <input id="n2" type="number"> 
+    <br> 
+    <br> <label for="resultado">Resultado:</label> 
+    <br> 
+    <input id="resultado" type="text" disabled>
+    <br> 
+    <p id="result"></p> <button id="soma" type="button">+</button> <button id="subtracao" type="button">-</button> <button id="multiplicacao" type="button">*</button> <button id="divisao" type="button">/</button> 
+   </form> 
+  </main> <!-- Java Script --> 
+  <script>
+         const resultado = document.querySelector('#resultado');
+         const result = document.querySelector('#result');
+         
+         
+         document.querySelector('#soma').addEventListener('click', (n1, n2) => {
+           n1 = parseFloat(document.querySelector('#n1').value);
+           n2 = parseFloat(document.querySelector('#n2').value);
+           resultado.value = n1 + n2;
+           result.textContent = n1 + n2;
+         });
+         
+         document.querySelector('#subtracao').addEventListener('click', (n1, n2) => {
+           n1 = parseFloat(document.querySelector('#n1').value);
+           n2 = parseFloat(document.querySelector('#n2').value);
+           resultado.value = n1 - n2;
+           result.textContent = n1 - n2;
+         });
+         
+         document.querySelector('#multiplicacao').addEventListener('click', (n1, n2) => {
+           n1 = parseFloat(document.querySelector('#n1').value);
+           n2 = parseFloat(document.querySelector('#n2').value);
+           resultado.value = n1 * n2;
+           result.textContent = n1 * n2;
+         });
+         
+         document.querySelector('#divisao').addEventListener('click', (n1, n2) => {
+           n1 = parseFloat(document.querySelector('#n1').value);
+           n2 = parseFloat(document.querySelector('#n2').value);
+           if(n1 != 0){
+             n1 = parseFloat(document.querySelector('#n1').value);
+             n2 = parseFloat(document.querySelector('#n2').value);
+             resultado.value = n1 / n2;
+             result.textContent = n1 / n2;
+           }else {
+             resultado.value = "não é possivel dividor por 0";
+             result.textContent = "não é possivel dividir por 0";
+           }
+         });
+         
+      </script> 
+ </body>
+</html>
